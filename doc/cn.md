@@ -1,12 +1,10 @@
-[English] | [中文](www.baidu.com)
-
 # Introduction
 
-Route animation by using flutter's transition widget
+通过使用flutter的transition组件进行路由过渡动画
 
 # Use
 
-use Navigator.push to push route:
+通过Navigator.push(context, route)跳转直接传入包裹后的路由即可
 
 ``` dart
 
@@ -14,7 +12,7 @@ use Navigator.push to push route:
 
 ```
 
-use Navigator.pushName to push route，Can be set through onGenerateRoute in MaterialApp
+想要通过Navigator.pushName跳转，可以通过MaterialApp中的onGenerateRoute进行设置
 
 ``` dart
   MaterialApp(

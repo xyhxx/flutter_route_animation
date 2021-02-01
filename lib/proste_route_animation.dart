@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'proste_route_animation_class.dart';
 import 'proste_route_animation_type.dart';
 
+export 'proste_route_animation_type.dart';
+
 class ProsteRouteAnimation {
   static Route fadeRoute({
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
   }) {
-    return ProsteFadeRoute(
+    return FadeRouteAnimation(
       route,
       duration: duration,
       reverseDuration: reverseDuration,
@@ -24,7 +26,7 @@ class ProsteRouteAnimation {
     SlideMode mode = SlideMode.fromRight,
     bool useFade = false,
   }) {
-    return ProsteSlideRoute(
+    return SlideRouteAnimation(
       route,
       duration: duration,
       reverseDuration: reverseDuration,
@@ -40,7 +42,7 @@ class ProsteRouteAnimation {
     bool useFade = false,
     Alignment alignment = Alignment.center,
   }) {
-    return ProsteScaleRoute(
+    return ScaleRouteAnimation(
       route,
       duration: duration,
       reverseDuration: reverseDuration,
@@ -56,7 +58,7 @@ class ProsteRouteAnimation {
     bool useFade = false,
     Alignment alignment = Alignment.bottomCenter,
   }) {
-    return ProsteRotationRoute(
+    return RotationRouteAnimation(
       route,
       duration: duration,
       reverseDuration: reverseDuration,
@@ -73,7 +75,7 @@ class ProsteRouteAnimation {
     Alignment alignment = Alignment.bottomCenter,
     Axis axis = Axis.vertical,
   }) {
-    return ProsteSizeRoute(
+    return SizeRouteAnimation(
       route,
       duration: duration,
       reverseDuration: reverseDuration,

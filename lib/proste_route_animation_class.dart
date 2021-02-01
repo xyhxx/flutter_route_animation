@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'proste_route_animation_type.dart';
 
-class ProsteFadeRoute extends PageRouteBuilder {
+class FadeRouteAnimation extends PageRouteBuilder {
   Widget route;
   Duration duration;
   Duration reverseDuration;
-  ProsteFadeRoute(
+  FadeRouteAnimation(
     this.route, {
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
@@ -19,14 +19,14 @@ class ProsteFadeRoute extends PageRouteBuilder {
         );
 }
 
-class ProsteSlideRoute extends PageRouteBuilder {
+class SlideRouteAnimation extends PageRouteBuilder {
   Widget route;
   Duration duration;
   Duration reverseDuration;
   SlideMode mode;
   bool useFade;
 
-  ProsteSlideRoute(
+  SlideRouteAnimation(
     this.route, {
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
@@ -67,14 +67,14 @@ class ProsteSlideRoute extends PageRouteBuilder {
         );
 }
 
-class ProsteScaleRoute extends PageRouteBuilder {
+class ScaleRouteAnimation extends PageRouteBuilder {
   Widget route;
   Duration duration;
   Duration reverseDuration;
   bool useFade;
   Alignment alignment;
 
-  ProsteScaleRoute(
+  ScaleRouteAnimation(
     this.route, {
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
@@ -101,14 +101,14 @@ class ProsteScaleRoute extends PageRouteBuilder {
         );
 }
 
-class ProsteRotationRoute extends PageRouteBuilder {
+class RotationRouteAnimation extends PageRouteBuilder {
   Widget route;
   Duration duration;
   Duration reverseDuration;
   Alignment alignment;
   bool useFade;
 
-  ProsteRotationRoute(
+  RotationRouteAnimation(
     this.route, {
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
@@ -136,7 +136,7 @@ class ProsteRotationRoute extends PageRouteBuilder {
         );
 }
 
-class ProsteSizeRoute extends PageRouteBuilder {
+class SizeRouteAnimation extends PageRouteBuilder {
   Widget route;
   Duration duration;
   Duration reverseDuration;
@@ -144,7 +144,7 @@ class ProsteSizeRoute extends PageRouteBuilder {
   Alignment alignment;
   Axis axis;
 
-  ProsteSizeRoute(
+  SizeRouteAnimation(
     this.route, {
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
