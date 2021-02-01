@@ -10,3 +10,8 @@
 ## [0.0.3-rc]
 
 * optimizes function
+
+
+## [1.0.0]
+
+* release
