@@ -1,4 +1,4 @@
-[English] | [中文](www.baidu.com)
+[English] | [中文](https://github.com/xyhxx/flutter_route_animation/blob/master/doc/cn.md)
 
 # Introduction
 
