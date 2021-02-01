@@ -247,7 +247,7 @@ class _MyAppHomeState extends State<MyAppHome> {
               Text('SlideMode(slideRoute):'),
               Wrap(
                 children: [
-                  _radioForSlideMode('slideLeft', SlideMode.fromLeft),
+                  _radioForSlideMode('fromLeft', SlideMode.fromLeft),
                   _radioForSlideMode('fromRight', SlideMode.fromRight),
                   _radioForSlideMode('fromTop', SlideMode.fromTop),
                   _radioForSlideMode('fromBottom', SlideMode.fromBottom),

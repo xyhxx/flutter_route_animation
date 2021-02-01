@@ -1,6 +1,6 @@
 name: proste_route_animation
 description: easy flutter route change animation
-version: 0.0.3-rc
+version: 1.0.0
 homepage: https://github.com/xyhxx/flutter_route_animation
 
 environment:
