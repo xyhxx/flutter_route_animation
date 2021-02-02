@@ -14,7 +14,7 @@ use Navigator.push() to push route:
 
 ```
 
-use Navigator.pushNamed() to push route，Can be set through onGenerateRoute in MaterialApp
+use Navigator.pushNamed() to push route，Can be set onGenerateRoute in MaterialApp
 
 ``` dart
   MaterialApp(

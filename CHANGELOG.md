@@ -1,4 +1,4 @@
-## [0.0.1-rc] - TODO: Add release date.
+## [0.0.1-rc]
 
 * test package
 
@@ -23,3 +23,7 @@
 ## [1.2.0]
 
 * add constructor function
+
+## [1.2.1]
+
+* reset readme
