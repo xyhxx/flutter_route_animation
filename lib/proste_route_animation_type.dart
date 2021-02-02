@@ -1,5 +1,5 @@
 /// slide animtion type
-enum SlideMode {
+enum ProsteSlideMode {
   /// page from left to right
   fromLeft,
 
@@ -13,7 +13,7 @@ enum SlideMode {
   fromTop,
 }
 // constructor function to confirm the specific method
-enum AnimationMode {
+enum ProsteAnimationMode {
   /// animation use fade
   /// it can also be used ProsteRouteAnimation.fadeRoute(...)
   fade,

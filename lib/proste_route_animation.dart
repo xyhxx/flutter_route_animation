@@ -13,15 +13,15 @@ export 'proste_route_animation_type.dart';
 ///
 /// [duration] can control route entry time
 /// [reverseDuration] can control route exit time
-/// [useFade] let the route animation also include fade effects, it is only [AnimationMode.fade] wont not use.
-/// [alignment] determine the starting position of the animation, it is [AnimationMode.fade] and [Animation.slide...] wont not use.
-/// [axis] determine the axis of the animation, is only [AnimationMode.size] use.
+/// [useFade] let the route animation also include fade effects, it is only [ProsteAnimationMode.fade] wont not use.
+/// [alignment] determine the starting position of the animation, it is [ProsteAnimationMode.fade] and [Animation.slide...] wont not use.
+/// [axis] determine the axis of the animation, is only [ProsteAnimationMode.size] use.
 /// [curve] is all mode can use.
 class ProsteRouteAnimation extends MaterialPageRoute {
   WidgetBuilder builder;
 
   /// Confirm animation type
-  AnimationMode mode;
+  ProsteAnimationMode mode;
 
   /// Execute animation is whether to execute fade animation at the same time
   bool useFade;
@@ -37,7 +37,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
 
   ProsteRouteAnimation({
     @required this.builder,
-    AnimationMode mode = AnimationMode.fade,
+    ProsteAnimationMode mode = ProsteAnimationMode.fade,
     bool useFade = false,
     Alignment alignment = Alignment.bottomCenter,
     Axis axis = Axis.vertical,
@@ -59,11 +59,8 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   @override
   Widget buildTransitions(context, animation, secondaryAnimation, child) {
     switch (mode) {
-      case AnimationMode.slideFromLeft:
-        Animation position =
-            Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
-                .chain(CurveTween(curve: curve))
-                .animate(animation);
+      case ProsteAnimationMode.slideFromLeft:
+        Animation position = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
 
         Widget transitionWidget = SlideTransition(
           position: position,
@@ -76,11 +73,8 @@ class ProsteRouteAnimation extends MaterialPageRoute {
           );
         }
         return transitionWidget;
-      case AnimationMode.slideFromRight:
-        Animation position =
-            Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
-                .chain(CurveTween(curve: curve))
-                .animate(animation);
+      case ProsteAnimationMode.slideFromRight:
+        Animation position = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
 
         Widget transitionWidget = SlideTransition(
           position: position,
@@ -93,11 +87,8 @@ class ProsteRouteAnimation extends MaterialPageRoute {
           );
         }
         return transitionWidget;
-      case AnimationMode.slideFromBottom:
-        Animation position =
-            Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0))
-                .chain(CurveTween(curve: curve))
-                .animate(animation);
+      case ProsteAnimationMode.slideFromBottom:
+        Animation position = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
 
         Widget transitionWidget = SlideTransition(
           position: position,
@@ -110,11 +101,8 @@ class ProsteRouteAnimation extends MaterialPageRoute {
           );
         }
         return transitionWidget;
-      case AnimationMode.slideFromTop:
-        Animation position =
-            Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0))
-                .chain(CurveTween(curve: curve))
-                .animate(animation);
+      case ProsteAnimationMode.slideFromTop:
+        Animation position = Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
 
         Widget transitionWidget = SlideTransition(
           position: position,
@@ -127,10 +115,8 @@ class ProsteRouteAnimation extends MaterialPageRoute {
           );
         }
         return transitionWidget;
-      case AnimationMode.scale:
-        Animation animated = Tween<double>(begin: 0.0, end: 1.0)
-            .chain(CurveTween(curve: curve))
-            .animate(animation);
+      case ProsteAnimationMode.scale:
+        Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
         Widget transitionWidget = ScaleTransition(
           scale: animated,
           alignment: alignment,
@@ -143,10 +129,8 @@ class ProsteRouteAnimation extends MaterialPageRoute {
           );
         }
         return transitionWidget;
-      case AnimationMode.rotation:
-        Animation<double> turns = Tween(begin: 1.2, end: 1.0)
-            .chain(CurveTween(curve: curve))
-            .animate(animation);
+      case ProsteAnimationMode.rotation:
+        Animation<double> turns = Tween(begin: 1.2, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
         Widget transitionChild = RotationTransition(
           turns: turns,
           child: child,
@@ -154,17 +138,13 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         );
         if (useFade) {
           return FadeTransition(
-            opacity: Tween<double>(begin: 0.0, end: 1.0)
-                .chain(CurveTween(curve: curve))
-                .animate(animation),
+            opacity: Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation),
             child: transitionChild,
           );
         }
         return transitionChild;
-      case AnimationMode.size:
-        Animation animated = Tween<double>(begin: 0.0, end: 1.0)
-            .chain(CurveTween(curve: curve))
-            .animate(animation);
+      case ProsteAnimationMode.size:
+        Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
 
         Widget transitionChild = Align(
           alignment: alignment,
@@ -182,11 +162,9 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         }
 
         return transitionChild;
-      case AnimationMode.fade:
+      case ProsteAnimationMode.fade:
       default:
-        Animation animated = Tween<double>(begin: 0.0, end: 1.0)
-            .chain(CurveTween(curve: curve))
-            .animate(animation);
+        Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
         return FadeTransition(opacity: animated, child: child);
     }
   }
@@ -213,7 +191,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
-    SlideMode mode = SlideMode.fromRight,
+    ProsteSlideMode mode = ProsteSlideMode.fromRight,
     bool useFade = false,
     Curve curve = Curves.linear,
   }) {

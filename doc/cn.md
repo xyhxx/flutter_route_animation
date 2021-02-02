@@ -55,7 +55,7 @@ ProsteRouteAnimation(
   useFade: true,
   axis: Axis.vertical,
   alignment: Alignment.center,
-  mode: AnimationMode.fade,
+  mode: ProsteAnimationMode.fade,
 );
 ```
 
@@ -72,7 +72,7 @@ ProsteRouteAnimation(
 ``` dart
 ProsteRouteAnimation.slideRoute(
   route: DemoPage(),
-  mode: SlideMode.fromLeft,
+  mode: ProsteSlideMode.fromLeft,
   duration: Duration(milliseconds: 300),
   reverseDuration: Duration(milliseconds: 300),
   useFade: true,

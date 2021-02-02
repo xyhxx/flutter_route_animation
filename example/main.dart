@@ -91,14 +91,14 @@ class MyAppHome extends StatefulWidget {
 
 class _MyAppHomeState extends State<MyAppHome> {
   String _returnMessage = '';
-  SlideMode _slideMode = SlideMode.fromLeft;
+  ProsteSlideMode _slideMode = ProsteSlideMode.fromLeft;
   Alignment _alignment = Alignment.center;
   bool _useFade = false;
   Axis _axis = Axis.vertical;
   int _duration = 300;
   int _reverseDuration = 300;
   Curve _curve = Curves.linear;
-  AnimationMode _animationMode = AnimationMode.fade;
+  ProsteAnimationMode _animationMode = ProsteAnimationMode.fade;
 
   String _getRandom() {
     Random random = Random();
@@ -112,10 +112,10 @@ class _MyAppHomeState extends State<MyAppHome> {
     );
   }
 
-  Widget _radioForSlideMode(String title, SlideMode mode) {
+  Widget _radioForProsteSlideMode(String title, ProsteSlideMode mode) {
     return Container(
       width: 200,
-      child: RadioListTile<SlideMode>(
+      child: RadioListTile<ProsteSlideMode>(
         groupValue: _slideMode,
         title: Text(title),
         onChanged: (value) {
@@ -176,10 +176,10 @@ class _MyAppHomeState extends State<MyAppHome> {
     );
   }
 
-  Widget _radioForAnimationMode(String title, AnimationMode mode) {
+  Widget _radioForProsteAnimationMode(String title, ProsteAnimationMode mode) {
     return Container(
       width: 200,
-      child: RadioListTile<AnimationMode>(
+      child: RadioListTile<ProsteAnimationMode>(
         groupValue: _animationMode,
         title: Text(title),
         onChanged: (value) {
@@ -255,13 +255,13 @@ class _MyAppHomeState extends State<MyAppHome> {
         _paddingWidget(
           child: Column(
             children: [
-              Text('SlideMode(slideRoute):'),
+              Text('ProsteSlideMode(slideRoute):'),
               Wrap(
                 children: [
-                  _radioForSlideMode('fromLeft', SlideMode.fromLeft),
-                  _radioForSlideMode('fromRight', SlideMode.fromRight),
-                  _radioForSlideMode('fromTop', SlideMode.fromTop),
-                  _radioForSlideMode('fromBottom', SlideMode.fromBottom),
+                  _radioForProsteSlideMode('fromLeft', ProsteSlideMode.fromLeft),
+                  _radioForProsteSlideMode('fromRight', ProsteSlideMode.fromRight),
+                  _radioForProsteSlideMode('fromTop', ProsteSlideMode.fromTop),
+                  _radioForProsteSlideMode('fromBottom', ProsteSlideMode.fromBottom),
                 ],
               )
             ],
@@ -356,21 +356,17 @@ class _MyAppHomeState extends State<MyAppHome> {
         _paddingWidget(
           child: Column(
             children: [
-              Text('AnimationMode(ProsteRouteAnimation):'),
+              Text('ProsteAnimationMode(ProsteRouteAnimation):'),
               Wrap(
                 children: [
-                  _radioForAnimationMode('fade', AnimationMode.fade),
-                  _radioForAnimationMode(
-                      'slideFromLeft', AnimationMode.slideFromLeft),
-                  _radioForAnimationMode(
-                      'slideFromRight', AnimationMode.slideFromRight),
-                  _radioForAnimationMode(
-                      'slideFromTop', AnimationMode.slideFromTop),
-                  _radioForAnimationMode(
-                      'slideFromBottom', AnimationMode.slideFromBottom),
-                  _radioForAnimationMode('scale', AnimationMode.scale),
-                  _radioForAnimationMode('rotation', AnimationMode.rotation),
-                  _radioForAnimationMode('size', AnimationMode.size),
+                  _radioForProsteAnimationMode('fade', ProsteAnimationMode.fade),
+                  _radioForProsteAnimationMode('slideFromLeft', ProsteAnimationMode.slideFromLeft),
+                  _radioForProsteAnimationMode('slideFromRight', ProsteAnimationMode.slideFromRight),
+                  _radioForProsteAnimationMode('slideFromTop', ProsteAnimationMode.slideFromTop),
+                  _radioForProsteAnimationMode('slideFromBottom', ProsteAnimationMode.slideFromBottom),
+                  _radioForProsteAnimationMode('scale', ProsteAnimationMode.scale),
+                  _radioForProsteAnimationMode('rotation', ProsteAnimationMode.rotation),
+                  _radioForProsteAnimationMode('size', ProsteAnimationMode.size),
                 ],
               ),
             ],

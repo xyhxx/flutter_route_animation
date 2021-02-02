@@ -31,3 +31,7 @@
 ## [1.2.2]
 
 * perfect comment
+
+## [1.2.3]
+
+* reset enum name
