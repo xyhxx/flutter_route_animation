@@ -44,7 +44,58 @@
   );
 ```
 
+# ProsteSlideMode
+调用ProsteRouteAnimation.slideRoute()时，确定动画路径。
+
++ fromLeft
+  > page from left to right
++ fromRight
+  > page from right to left
++ fromBottom
+  > page from bottom to top
++ fromTop
+  > page from top to bottom
+
+``` dart
+ProsteRouteAnimation.slideRoute(
+  route: DemoPage(),
+  mode: ProsteSlideMode.fromLeft,
+  ...
+);
+```
+
+# ProsteAnimationMode
+调用构造方法时确定动画方式
+
++ fade
+  > fade animation
++ slideFromLeft
+  > animation use slide and page from left to right
++ slideFromRight
+  > animation use slide and page from right to left
++ slideFromBottom
+  > animation use slide and page from bottom to top
++ slideFromTop
+  > animation use slide and page from top to bottom
++ scale
+  > animation use scale
++ rotation
+  > animation use rotation
++ size
+  > animation use size change
+
+``` dart
+ProsteRouteAnimation(
+  builder: (context) => DemoPage(),
+  mode: ProsteAnimationMode.fade,
+  ...
+);
+```
+
+
 # Api
+
+__`注意使用构造方法不能通过时间控制路由的入场和离场动画时间，其他静态方法可以控制路由动画的离场和入场动画时间`__
 
 + ProsteRouteAnimation
 

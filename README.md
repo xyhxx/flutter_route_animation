@@ -46,7 +46,57 @@ use Navigator.pushNamed() to push route，Can be set onGenerateRoute in Material
   );
 ```
 
+# ProsteSlideMode
+Determine the animation path of ProsteRouteAnimation.slideRoute()
+
++ fromLeft
+  > page from left to right
++ fromRight
+  > page from right to left
++ fromBottom
+  > page from bottom to top
++ fromTop
+  > page from top to bottom
+
+``` dart
+ProsteRouteAnimation.slideRoute(
+  route: DemoPage(),
+  mode: ProsteSlideMode.fromLeft,
+  ...
+);
+```
+
+# ProsteAnimationMode
+Determine which animation method the constructor method uses
+
++ fade
+  > fade animation
++ slideFromLeft
+  > animation use slide and page from left to right
++ slideFromRight
+  > animation use slide and page from right to left
++ slideFromBottom
+  > animation use slide and page from bottom to top
++ slideFromTop
+  > animation use slide and page from top to bottom
++ scale
+  > animation use scale
++ rotation
+  > animation use rotation
++ size
+  > animation use size change
+
+``` dart
+ProsteRouteAnimation(
+  builder: (context) => DemoPage(),
+  mode: ProsteAnimationMode.fade,
+  ...
+);
+```
+
 # Api
+
+__`Notice that using the constructor method can not control the routing time,other static functions can control the entry and exit time.`__
 
 + ProsteRouteAnimation
 
