@@ -258,10 +258,13 @@ class _MyAppHomeState extends State<MyAppHome> {
               Text('ProsteSlideMode(slideRoute):'),
               Wrap(
                 children: [
-                  _radioForProsteSlideMode('fromLeft', ProsteSlideMode.fromLeft),
-                  _radioForProsteSlideMode('fromRight', ProsteSlideMode.fromRight),
+                  _radioForProsteSlideMode(
+                      'fromLeft', ProsteSlideMode.fromLeft),
+                  _radioForProsteSlideMode(
+                      'fromRight', ProsteSlideMode.fromRight),
                   _radioForProsteSlideMode('fromTop', ProsteSlideMode.fromTop),
-                  _radioForProsteSlideMode('fromBottom', ProsteSlideMode.fromBottom),
+                  _radioForProsteSlideMode(
+                      'fromBottom', ProsteSlideMode.fromBottom),
                 ],
               )
             ],
@@ -359,14 +362,22 @@ class _MyAppHomeState extends State<MyAppHome> {
               Text('ProsteAnimationMode(ProsteRouteAnimation):'),
               Wrap(
                 children: [
-                  _radioForProsteAnimationMode('fade', ProsteAnimationMode.fade),
-                  _radioForProsteAnimationMode('slideFromLeft', ProsteAnimationMode.slideFromLeft),
-                  _radioForProsteAnimationMode('slideFromRight', ProsteAnimationMode.slideFromRight),
-                  _radioForProsteAnimationMode('slideFromTop', ProsteAnimationMode.slideFromTop),
-                  _radioForProsteAnimationMode('slideFromBottom', ProsteAnimationMode.slideFromBottom),
-                  _radioForProsteAnimationMode('scale', ProsteAnimationMode.scale),
-                  _radioForProsteAnimationMode('rotation', ProsteAnimationMode.rotation),
-                  _radioForProsteAnimationMode('size', ProsteAnimationMode.size),
+                  _radioForProsteAnimationMode(
+                      'fade', ProsteAnimationMode.fade),
+                  _radioForProsteAnimationMode(
+                      'slideFromLeft', ProsteAnimationMode.slideFromLeft),
+                  _radioForProsteAnimationMode(
+                      'slideFromRight', ProsteAnimationMode.slideFromRight),
+                  _radioForProsteAnimationMode(
+                      'slideFromTop', ProsteAnimationMode.slideFromTop),
+                  _radioForProsteAnimationMode(
+                      'slideFromBottom', ProsteAnimationMode.slideFromBottom),
+                  _radioForProsteAnimationMode(
+                      'scale', ProsteAnimationMode.scale),
+                  _radioForProsteAnimationMode(
+                      'rotation', ProsteAnimationMode.rotation),
+                  _radioForProsteAnimationMode(
+                      'size', ProsteAnimationMode.size),
                 ],
               ),
             ],

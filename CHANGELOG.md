@@ -35,3 +35,8 @@
 ## [1.2.3]
 
 * reset enum name
+
+
+## [1.2.4]
+
+* perfect readme

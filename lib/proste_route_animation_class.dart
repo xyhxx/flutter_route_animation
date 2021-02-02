@@ -26,7 +26,9 @@ class FadeRouteAnimation extends PageRouteBuilder {
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, anim, child) {
-            Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+            Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+                .chain(CurveTween(curve: curve))
+                .animate(animation);
             return FadeTransition(opacity: animated, child: child);
           },
         );
@@ -68,16 +70,26 @@ class SlideRouteAnimation extends PageRouteBuilder {
             Animation<Offset> position;
             switch (mode) {
               case ProsteSlideMode.fromRight:
-                position = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+                position = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
+                    .chain(CurveTween(curve: curve))
+                    .animate(animation);
                 break;
               case ProsteSlideMode.fromLeft:
-                position = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+                position =
+                    Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
+                        .chain(CurveTween(curve: curve))
+                        .animate(animation);
                 break;
               case ProsteSlideMode.fromBottom:
-                position = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+                position = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0))
+                    .chain(CurveTween(curve: curve))
+                    .animate(animation);
                 break;
               case ProsteSlideMode.fromTop:
-                position = Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+                position =
+                    Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0))
+                        .chain(CurveTween(curve: curve))
+                        .animate(animation);
                 break;
             }
             Widget transitionWidget = SlideTransition(
@@ -128,7 +140,9 @@ class ScaleRouteAnimation extends PageRouteBuilder {
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, _, child) {
-            Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+            Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+                .chain(CurveTween(curve: curve))
+                .animate(animation);
             Widget transitionWidget = ScaleTransition(
               scale: animated,
               alignment: alignment,
@@ -178,7 +192,9 @@ class RotationRouteAnimation extends PageRouteBuilder {
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, _, child) {
-            Animation<double> turns = Tween(begin: 1.2, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+            Animation<double> turns = Tween(begin: 1.2, end: 1.0)
+                .chain(CurveTween(curve: curve))
+                .animate(animation);
             Widget transitionChild = RotationTransition(
               turns: turns,
               child: child,
@@ -186,7 +202,9 @@ class RotationRouteAnimation extends PageRouteBuilder {
             );
             if (useFade) {
               return FadeTransition(
-                opacity: Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation),
+                opacity: Tween<double>(begin: 0.0, end: 1.0)
+                    .chain(CurveTween(curve: curve))
+                    .animate(animation),
                 child: transitionChild,
               );
             }
@@ -232,7 +250,9 @@ class SizeRouteAnimation extends PageRouteBuilder {
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, _, child) {
-            Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+            Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+                .chain(CurveTween(curve: curve))
+                .animate(animation);
 
             Widget transitionChild = Align(
               alignment: alignment,
