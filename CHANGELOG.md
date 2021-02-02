@@ -27,3 +27,7 @@
 ## [1.2.1]
 
 * reset readme
+
+## [1.2.2]
+
+* perfect comment

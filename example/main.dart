@@ -360,10 +360,14 @@ class _MyAppHomeState extends State<MyAppHome> {
               Wrap(
                 children: [
                   _radioForAnimationMode('fade', AnimationMode.fade),
-                  _radioForAnimationMode('slideFromLeft', AnimationMode.slideFromLeft),
-                  _radioForAnimationMode('slideFromRight', AnimationMode.slideFromRight),
-                  _radioForAnimationMode('slideFromTop', AnimationMode.slideFromTop),
-                  _radioForAnimationMode('slideFromBottom', AnimationMode.slideFromBottom),
+                  _radioForAnimationMode(
+                      'slideFromLeft', AnimationMode.slideFromLeft),
+                  _radioForAnimationMode(
+                      'slideFromRight', AnimationMode.slideFromRight),
+                  _radioForAnimationMode(
+                      'slideFromTop', AnimationMode.slideFromTop),
+                  _radioForAnimationMode(
+                      'slideFromBottom', AnimationMode.slideFromBottom),
                   _radioForAnimationMode('scale', AnimationMode.scale),
                   _radioForAnimationMode('rotation', AnimationMode.rotation),
                   _radioForAnimationMode('size', AnimationMode.size),
