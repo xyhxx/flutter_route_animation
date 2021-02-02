@@ -48,6 +48,18 @@ use Navigator.pushNamed() to push route，Can be set through onGenerateRoute in 
 
 # Api
 
++ ProsteRouteAnimation
+
+``` dart
+ProsteRouteAnimation(
+  builder: (context) => DemoPage(),
+  curve: Curves.linear,
+  useFade: true,
+  axis: Axis.vertical,
+  alignment: Alignment.center,
+  mode: AnimationMode.fade,
+);
+```
 
 + ProsteRouteAnimation.fadeRoute
 ``` dart
@@ -55,7 +67,7 @@ use Navigator.pushNamed() to push route，Can be set through onGenerateRoute in 
     route: DemoPage(),
     duration: Duration(milliseconds: 300),
     reverseDuration: Duration(milliseconds: 300),
-    curve: Curves.liner,
+    curve: Curves.linear,
   )
 ```
 + ProsteRouteAnimation.slideRoute
@@ -66,7 +78,7 @@ ProsteRouteAnimation.slideRoute(
   duration: Duration(milliseconds: 300),
   reverseDuration: Duration(milliseconds: 300),
   useFade: true,
-  curve: Curves.liner,
+  curve: Curves.linear,
 );
 ```
 + ProsteRouteAnimation.scaleRoute
@@ -77,7 +89,7 @@ ProsteRouteAnimation.scaleRoute(
   duration: Duration(milliseconds: 300),
   reverseDuration: Duration(milliseconds: 300),
   useFade: true,
-  curve: Curves.liner,
+  curve: Curves.linear,
 );
 ```
 + ProsteRouteAnimation.rotationRoute
@@ -88,7 +100,7 @@ ProsteRouteAnimation.rotationRoute(
   duration: Duration(milliseconds: 300),
   reverseDuration: Duration(milliseconds: 300),
   useFade: true,
-  curve: Curves.liner,
+  curve: Curves.linear,
 );
 ```
 + ProsteRouteAnimation.sizeRoute
@@ -100,6 +112,8 @@ ProsteRouteAnimation.sizeRoute(
   reverseDuration: Duration(milliseconds: 300),
   useFade: true,
   axis: Axis.vertical,
-  curve: Curves.liner,
+  curve: Curves.linear,
 );
 ```
+
+> If you find a bug, please send it to [issues](https://github.com/xyhxx/flutter_route_animation/issues), I will fix it as soon as I see it, thinks!!

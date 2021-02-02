@@ -46,6 +46,19 @@
 
 # Api
 
++ ProsteRouteAnimation
+
+``` dart
+ProsteRouteAnimation(
+  builder: (context) => DemoPage(),
+  curve: Curves.linear,
+  useFade: true,
+  axis: Axis.vertical,
+  alignment: Alignment.center,
+  mode: AnimationMode.fade,
+);
+```
+
 + ProsteRouteAnimation.fadeRoute
 ``` dart
   ProsteRouteAnimation.fadeRoute(
@@ -100,3 +113,5 @@ ProsteRouteAnimation.sizeRoute(
   curve: Curves.liner,
 );
 ```
+
+> 如果你发现了bug，请发送到[issues](https://github.com/xyhxx/flutter_route_animation/issues)，我会看到后会尽快修复，谢谢！！

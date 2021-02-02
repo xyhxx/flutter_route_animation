@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
 import 'package:proste_route_animation/proste_route_animation.dart';
 
 void main() {
@@ -17,6 +18,16 @@ class MyApp extends StatelessWidget {
           param: arg['param'],
         );
         switch (arg['type']) {
+          case 'ProsteRouteAnimation':
+            return ProsteRouteAnimation(
+              builder: (context) => route,
+              curve: arg['curve'],
+              useFade: arg['useFade'],
+              axis: arg['axis'],
+              alignment: arg['aligment'],
+              mode: arg['animationMode'],
+            );
+            break;
           case 'fadeRoute':
             return ProsteRouteAnimation.fadeRoute(
               route: route,
@@ -87,6 +98,7 @@ class _MyAppHomeState extends State<MyAppHome> {
   int _duration = 300;
   int _reverseDuration = 300;
   Curve _curve = Curves.linear;
+  AnimationMode _animationMode = AnimationMode.fade;
 
   String _getRandom() {
     Random random = Random();
@@ -164,6 +176,22 @@ class _MyAppHomeState extends State<MyAppHome> {
     );
   }
 
+  Widget _radioForAnimationMode(String title, AnimationMode mode) {
+    return Container(
+      width: 200,
+      child: RadioListTile<AnimationMode>(
+        groupValue: _animationMode,
+        title: Text(title),
+        onChanged: (value) {
+          this.setState(() {
+            _animationMode = value;
+          });
+        },
+        value: mode,
+      ),
+    );
+  }
+
   Widget _jumpButton(String title) {
     return RaisedButton(
       onPressed: () {
@@ -181,6 +209,7 @@ class _MyAppHomeState extends State<MyAppHome> {
             'duration': _duration,
             'reverseDuration': _reverseDuration,
             'curve': _curve,
+            'animationMode': _animationMode,
           },
         ).then((value) {
           setState(() {
@@ -229,7 +258,7 @@ class _MyAppHomeState extends State<MyAppHome> {
               Text('SlideMode(slideRoute):'),
               Wrap(
                 children: [
-                  _radioForSlideMode('slideLeft', SlideMode.fromLeft),
+                  _radioForSlideMode('fromLeft', SlideMode.fromLeft),
                   _radioForSlideMode('fromRight', SlideMode.fromRight),
                   _radioForSlideMode('fromTop', SlideMode.fromTop),
                   _radioForSlideMode('fromBottom', SlideMode.fromBottom),
@@ -324,6 +353,25 @@ class _MyAppHomeState extends State<MyAppHome> {
             ],
           ),
         ),
+        _paddingWidget(
+          child: Column(
+            children: [
+              Text('AnimationMode(ProsteRouteAnimation):'),
+              Wrap(
+                children: [
+                  _radioForAnimationMode('fade', AnimationMode.fade),
+                  _radioForAnimationMode('slideFromLeft', AnimationMode.slideFromLeft),
+                  _radioForAnimationMode('slideFromRight', AnimationMode.slideFromRight),
+                  _radioForAnimationMode('slideFromTop', AnimationMode.slideFromTop),
+                  _radioForAnimationMode('slideFromBottom', AnimationMode.slideFromBottom),
+                  _radioForAnimationMode('scale', AnimationMode.scale),
+                  _radioForAnimationMode('rotation', AnimationMode.rotation),
+                  _radioForAnimationMode('size', AnimationMode.size),
+                ],
+              ),
+            ],
+          ),
+        ),
         Wrap(
           alignment: WrapAlignment.spaceEvenly,
           children: [
@@ -332,6 +380,7 @@ class _MyAppHomeState extends State<MyAppHome> {
             _jumpButton('scaleRoute'),
             _jumpButton('rotationRoute'),
             _jumpButton('sizeRoute'),
+            _jumpButton('ProsteRouteAnimation'),
           ],
         ),
       ],
@@ -340,7 +389,6 @@ class _MyAppHomeState extends State<MyAppHome> {
 }
 
 // DemoPage
-
 class DemoPage extends StatelessWidget {
   final String param;
 

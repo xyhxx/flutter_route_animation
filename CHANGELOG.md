@@ -19,3 +19,7 @@
 ## [1.1.0]
 
 * add curve
+
+## [1.2.0]
+
+* add constructor function

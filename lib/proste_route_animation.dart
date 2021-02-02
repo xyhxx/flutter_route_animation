@@ -6,8 +6,162 @@ import 'proste_route_animation_type.dart';
 
 export 'proste_route_animation_type.dart';
 
-class ProsteRouteAnimation {
-  /// use FadeTransition push route
+/// Route animation by using flutter's transition widget
+///
+/// Notice that using the constructor method can not control the routing time,
+/// other static functions can control the entry and exit time.
+///
+/// [duration] can control route entry time
+/// [reverseDuration] can control route exit time
+/// [useFade] let the route animation also include fade effects, it is only [AnimationMode.fade] wont not use.
+/// [alignment] determine the starting position of the animation, it is [AnimationMode.fade] and [Animation.slide...] wont not use.
+/// [axis] determine the axis of the animation, is only [AnimationMode.size] use.
+/// [curve] is all mode can use.
+class ProsteRouteAnimation extends MaterialPageRoute {
+  WidgetBuilder builder;
+  AnimationMode mode;
+  bool useFade;
+  Alignment alignment;
+  Axis axis;
+  Curve curve;
+
+  /// Constructor, [builder] is required, other params had default value.
+  ProsteRouteAnimation({
+    @required this.builder,
+    AnimationMode mode = AnimationMode.fade,
+    bool useFade = false,
+    Alignment alignment = Alignment.bottomCenter,
+    Axis axis = Axis.vertical,
+    Curve curve = Curves.linear,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+  })  : mode = mode,
+        useFade = useFade,
+        alignment = alignment,
+        axis = axis,
+        curve = curve,
+        super(
+          builder: builder,
+          maintainState: maintainState,
+          fullscreenDialog: fullscreenDialog,
+        );
+
+  /// Rewriting the method of realizing route animation
+  @override
+  Widget buildTransitions(context, animation, secondaryAnimation, child) {
+    switch (mode) {
+      case AnimationMode.slideFromLeft:
+        Animation position = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+
+        Widget transitionWidget = SlideTransition(
+          position: position,
+          child: child,
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: animation,
+            child: transitionWidget,
+          );
+        }
+        return transitionWidget;
+      case AnimationMode.slideFromRight:
+        Animation position = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+
+        Widget transitionWidget = SlideTransition(
+          position: position,
+          child: child,
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: animation,
+            child: transitionWidget,
+          );
+        }
+        return transitionWidget;
+      case AnimationMode.slideFromBottom:
+        Animation position = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+
+        Widget transitionWidget = SlideTransition(
+          position: position,
+          child: child,
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: animation,
+            child: transitionWidget,
+          );
+        }
+        return transitionWidget;
+      case AnimationMode.slideFromTop:
+        Animation position = Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).chain(CurveTween(curve: curve)).animate(animation);
+
+        Widget transitionWidget = SlideTransition(
+          position: position,
+          child: child,
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: animation,
+            child: transitionWidget,
+          );
+        }
+        return transitionWidget;
+      case AnimationMode.scale:
+        Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+        Widget transitionWidget = ScaleTransition(
+          scale: animated,
+          alignment: alignment,
+          child: child,
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: animated,
+            child: transitionWidget,
+          );
+        }
+        return transitionWidget;
+      case AnimationMode.rotation:
+        Animation<double> turns = Tween(begin: 1.2, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+        Widget transitionChild = RotationTransition(
+          turns: turns,
+          child: child,
+          alignment: alignment,
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation),
+            child: transitionChild,
+          );
+        }
+        return transitionChild;
+      case AnimationMode.size:
+        Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+
+        Widget transitionChild = Align(
+          alignment: alignment,
+          child: SizeTransition(
+            sizeFactor: animated,
+            child: child,
+            axis: axis,
+          ),
+        );
+        if (useFade) {
+          return FadeTransition(
+            opacity: animated,
+            child: transitionChild,
+          );
+        }
+
+        return transitionChild;
+      case AnimationMode.fade:
+      default:
+        Animation animated = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve)).animate(animation);
+        return FadeTransition(opacity: animated, child: child);
+    }
+  }
+
+  /// static function, in order to realize fade animation
+  /// route is required, else params had defalut value
   static Route fadeRoute({
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
@@ -22,7 +176,8 @@ class ProsteRouteAnimation {
     );
   }
 
-  /// use SlideTransition push route
+  /// static function, in order to realize slide animation
+  /// route is required, else params had defalut value
   static Route slideRoute({
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
@@ -41,7 +196,8 @@ class ProsteRouteAnimation {
     );
   }
 
-  /// use ScaleTransition push route
+  /// static function, in order to realize scale animation
+  /// route is required, else params had defalut value
   static Route scaleRoute({
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
@@ -60,7 +216,8 @@ class ProsteRouteAnimation {
     );
   }
 
-  /// use RotationTransition push route
+  /// static function, in order to realize rotation animation
+  /// route is required, else params had defalut value
   static Route rotationRoute({
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
@@ -79,7 +236,8 @@ class ProsteRouteAnimation {
     );
   }
 
-  /// use SizeTransition push route
+  /// static function, in order to realize size change animation
+  /// route is required, else params had defalut value
   static Route sizeRoute({
     @required Widget route,
     Duration duration = const Duration(milliseconds: 300),
