@@ -28,7 +28,7 @@ use Navigator.pushNamed() to push route，Can be set onGenerateRoute in Material
           break;
       }
 
-      return ProsteRouteAnimation.fadeRoute(child: widget, ...);
+      return ProsteRouteAnimation.fadeRoute(route: widget, ...);
     }
   )
 

@@ -26,7 +26,7 @@
           break;
       }
 
-      return ProsteRouteAnimation.fadeRoute(child: widget, ...);
+      return ProsteRouteAnimation.fadeRoute(route: widget, ...);
     }
   )
 
