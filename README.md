@@ -4,6 +4,8 @@
 
 Route animation by using flutter's transition widget
 
+  <image style="width: 180px" src="https://raw.githubusercontent.com/xyhxx/flutter_route_animation/master/preview/preview.gif">
+
 # Usage
 
 use Navigator.push() to push route:

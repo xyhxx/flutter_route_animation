@@ -2,7 +2,9 @@
 
 通过使用flutter的transition组件进行路由过渡动画
 
-# Use
+  <image style="width: 180px" src="https://raw.githubusercontent.com/xyhxx/flutter_route_animation/master/preview/preview.gif">
+
+# Usage
 
 通过Navigator.push()跳转直接传入包裹后的路由即可
 

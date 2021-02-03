@@ -40,3 +40,7 @@
 ## [1.2.4]
 
 * perfect readme
+
+## [1.2.5]
+
+* add preview gif
