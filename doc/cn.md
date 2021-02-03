@@ -2,7 +2,7 @@
 
 通过使用flutter的transition组件进行路由过渡动画
 
-  <image style="width: 180px" src="https://raw.githubusercontent.com/xyhxx/flutter_route_animation/master/preview/preview.gif">
+  <image style="width: 180px" src="https://github.com/xyhxx/program_preview/raw/master/proste_route_animation/preview.gif">
 
 # Usage
 

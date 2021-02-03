@@ -4,7 +4,7 @@
 
 Route animation by using flutter's transition widget
 
-  <image style="width: 180px" src="https://raw.githubusercontent.com/xyhxx/flutter_route_animation/master/preview/preview.gif">
+  <image style="width: 180px" src="https://github.com/xyhxx/program_preview/raw/master/proste_route_animation/preview.gif">
 
 # Usage
 
