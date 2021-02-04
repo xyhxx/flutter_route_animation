@@ -109,6 +109,8 @@ ProsteRouteAnimation(
   axis: Axis.vertical,
   alignment: Alignment.center,
   mode: ProsteAnimationMode.fade,
+  maintainState: true,
+  fullscreenDialog: false,
 );
 ```
 

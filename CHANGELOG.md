@@ -44,3 +44,7 @@
 ## [1.2.5]
 
 * add preview gif
+
+## [1.2.6]
+
+* supplement readmin
