@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: (settings) {
-        var arg = Map.from(settings.arguments);
+        final Map arg = Map.from(settings.arguments as Map);
         var route = DemoPage(
           param: arg['param'],
         );
@@ -105,7 +105,7 @@ class _MyAppHomeState extends State<MyAppHome> {
     return random.nextDouble().toString();
   }
 
-  Widget _paddingWidget({Widget child}) {
+  Widget _paddingWidget({Widget? child}) {
     return Padding(
       padding: EdgeInsets.only(top: 15),
       child: child,
@@ -120,7 +120,7 @@ class _MyAppHomeState extends State<MyAppHome> {
         title: Text(title),
         onChanged: (value) {
           this.setState(() {
-            _slideMode = value;
+            _slideMode = value!;
           });
         },
         value: mode,
@@ -136,7 +136,7 @@ class _MyAppHomeState extends State<MyAppHome> {
         title: Text(title),
         onChanged: (value) {
           this.setState(() {
-            _alignment = value;
+            _alignment = value!;
           });
         },
         value: alignment,
@@ -152,7 +152,7 @@ class _MyAppHomeState extends State<MyAppHome> {
         title: Text(title),
         onChanged: (value) {
           this.setState(() {
-            _axis = value;
+            _axis = value!;
           });
         },
         value: axis,
@@ -168,7 +168,7 @@ class _MyAppHomeState extends State<MyAppHome> {
         title: Text(title),
         onChanged: (value) {
           this.setState(() {
-            _curve = value;
+            _curve = value!;
           });
         },
         value: curve,
@@ -184,7 +184,7 @@ class _MyAppHomeState extends State<MyAppHome> {
         title: Text(title),
         onChanged: (value) {
           this.setState(() {
-            _animationMode = value;
+            _animationMode = value!;
           });
         },
         value: mode,
@@ -199,7 +199,7 @@ class _MyAppHomeState extends State<MyAppHome> {
         Navigator.pushNamed(
           context,
           '/demo',
-          arguments: {
+          arguments: Map.from({
             'param': param,
             'type': title,
             'slideMode': _slideMode,
@@ -210,7 +210,7 @@ class _MyAppHomeState extends State<MyAppHome> {
             'reverseDuration': _reverseDuration,
             'curve': _curve,
             'animationMode': _animationMode,
-          },
+          }),
         ).then((value) {
           setState(() {
             _returnMessage = value.toString();
@@ -403,7 +403,7 @@ class _MyAppHomeState extends State<MyAppHome> {
 class DemoPage extends StatelessWidget {
   final String param;
 
-  const DemoPage({this.param});
+  const DemoPage({required this.param});
 
   @override
   Widget build(BuildContext context) {

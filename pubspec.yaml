@@ -1,10 +1,10 @@
 name: proste_route_animation
 description: Simple route animation，it encapsulates the transition widget in the flutter, which is more convenient to call the route animation.
-version: 1.2.6
+version: 2.0.1
 homepage: https://github.com/xyhxx/flutter_route_animation
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

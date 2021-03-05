@@ -16,17 +16,18 @@ class FadeRouteAnimation extends PageRouteBuilder {
 
   /// page animation curve
   Curve curve;
+
   FadeRouteAnimation(
     this.route, {
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
-    Curve curve = Curves.linear,
+    this.curve = Curves.linear,
   }) : super(
           pageBuilder: (context, animate, _) => route,
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, anim, child) {
-            Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+            Animation<double> animated = Tween<double>(begin: 0.0, end: 1.0)
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
             return FadeTransition(opacity: animated, child: child);
@@ -140,7 +141,7 @@ class ScaleRouteAnimation extends PageRouteBuilder {
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, _, child) {
-            Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+            Animation<double> animated = Tween<double>(begin: 0.0, end: 1.0)
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
             Widget transitionWidget = ScaleTransition(
@@ -250,7 +251,7 @@ class SizeRouteAnimation extends PageRouteBuilder {
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           transitionsBuilder: (context, animation, _, child) {
-            Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+            Animation<double> animated = Tween<double>(begin: 0.0, end: 1.0)
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
 

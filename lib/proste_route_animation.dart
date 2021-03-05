@@ -36,7 +36,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   Curve curve;
 
   ProsteRouteAnimation({
-    @required this.builder,
+    required this.builder,
     ProsteAnimationMode mode = ProsteAnimationMode.fade,
     bool useFade = false,
     Alignment alignment = Alignment.bottomCenter,
@@ -60,7 +60,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   Widget buildTransitions(context, animation, secondaryAnimation, child) {
     switch (mode) {
       case ProsteAnimationMode.slideFromLeft:
-        Animation position =
+        Animation<Offset> position =
             Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
@@ -77,7 +77,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         }
         return transitionWidget;
       case ProsteAnimationMode.slideFromRight:
-        Animation position =
+        Animation<Offset> position =
             Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
@@ -94,7 +94,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         }
         return transitionWidget;
       case ProsteAnimationMode.slideFromBottom:
-        Animation position =
+        Animation<Offset> position =
             Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0))
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
@@ -111,7 +111,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         }
         return transitionWidget;
       case ProsteAnimationMode.slideFromTop:
-        Animation position =
+        Animation<Offset> position =
             Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0))
                 .chain(CurveTween(curve: curve))
                 .animate(animation);
@@ -128,7 +128,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         }
         return transitionWidget;
       case ProsteAnimationMode.scale:
-        Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+        Animation<double> animated = Tween<double>(begin: 0.0, end: 1.0)
             .chain(CurveTween(curve: curve))
             .animate(animation);
         Widget transitionWidget = ScaleTransition(
@@ -162,7 +162,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         }
         return transitionChild;
       case ProsteAnimationMode.size:
-        Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+        Animation<double> animated = Tween<double>(begin: 0.0, end: 1.0)
             .chain(CurveTween(curve: curve))
             .animate(animation);
 
@@ -184,7 +184,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
         return transitionChild;
       case ProsteAnimationMode.fade:
       default:
-        Animation animated = Tween<double>(begin: 0.0, end: 1.0)
+        Animation<double> animated = Tween<double>(begin: 0.0, end: 1.0)
             .chain(CurveTween(curve: curve))
             .animate(animation);
         return FadeTransition(opacity: animated, child: child);
@@ -194,7 +194,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   /// static function, in order to realize fade animation
   /// route is required, else params had defalut value
   static Route fadeRoute({
-    @required Widget route,
+    required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
     Curve curve = Curves.linear,
@@ -210,7 +210,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   /// static function, in order to realize slide animation
   /// route is required, else params had defalut value
   static Route slideRoute({
-    @required Widget route,
+    required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
     ProsteSlideMode mode = ProsteSlideMode.fromRight,
@@ -230,7 +230,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   /// static function, in order to realize scale animation
   /// route is required, else params had defalut value
   static Route scaleRoute({
-    @required Widget route,
+    required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
     bool useFade = false,
@@ -250,7 +250,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   /// static function, in order to realize rotation animation
   /// route is required, else params had defalut value
   static Route rotationRoute({
-    @required Widget route,
+    required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
     bool useFade = false,
@@ -270,7 +270,7 @@ class ProsteRouteAnimation extends MaterialPageRoute {
   /// static function, in order to realize size change animation
   /// route is required, else params had defalut value
   static Route sizeRoute({
-    @required Widget route,
+    required Widget route,
     Duration duration = const Duration(milliseconds: 300),
     Duration reverseDuration = const Duration(milliseconds: 300),
     bool useFade = false,
