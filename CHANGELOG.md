@@ -1,3 +1,13 @@
+## [2.0.2]
+
+* add logo
+
+## [2.0.1]
+* null safety release
+## [2.0.0-nullsafety.0]
+* null safety debugging
+
+
 ## [0.0.1-rc]
 
 * test package
@@ -48,9 +58,3 @@
 ## [1.2.6]
 
 * supplement readmin
-
-## [2.0.0-nullsafety.0]
-* null safety debugging
-
-## [2.0.1]
-* null safety release
